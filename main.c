@@ -21,7 +21,7 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 	paths = parse_line(get_path, ":");
 	list_creator(paths, &head);
 	free(get_path);
-
+	
 	while (1)
 	{
 		read = read_line(head);
