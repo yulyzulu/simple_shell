@@ -9,9 +9,12 @@ char *read_line(list_t *head)
 {
 	char *buff = NULL;
 	size_t size = 0;
+	ssize_t get;
 
 	write(STDOUT_FILENO, "($) ", 4);
-	if (getline(&buff, &size, stdin) == EOF)
+	get = getline(&buff, &size, stdin);
+
+	if (get == EOF)
 	{
 		free(buff);
 		free_list(head);
