@@ -14,7 +14,7 @@ char **parse_line(char *read, char *del)
 	if (!tokens)
 	{
 		perror("Error\n");
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	token = strtok(read, del);
 	while (token != NULL)
@@ -28,7 +28,7 @@ char **parse_line(char *read, char *del)
 			if (!tokens)
 			{
 				perror("Error\n");
-				exit(0);
+				exit(EXIT_FAILURE);
 			}
 		}
 		token = strtok(NULL, del);
