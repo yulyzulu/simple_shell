@@ -1,10 +1,12 @@
 #include "shell.h"
+
 /**
 *concatenate_list- concatenate nodes
 *@head: double pointer list_t
 *@cmd: pointer
 *Return: newpath or first command
 */
+
 char *concatenate_list(list_t **head, char *cmd)
 {
 	list_t *temp = *head;
@@ -29,5 +31,6 @@ char *concatenate_list(list_t **head, char *cmd)
 			}
 		}
 	}
-	return (cmd);
+	newpath = _strdup(cmd);
+	return (newpath);
 }

@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
 *main- Shell program
 *@ac: integer
@@ -6,6 +7,7 @@
 *@env: double pointer
 *Return: Shell functions
 */
+
 int main(__attribute__((unused))int ac, char **av, char **env)
 {
 	pid_t child;
@@ -42,6 +44,7 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 			wait(&status);
 		}
 		free(read);
+		free(av[0]);
 		free(av);
 	}
 	exit(0);

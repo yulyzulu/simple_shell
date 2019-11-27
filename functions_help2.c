@@ -44,8 +44,8 @@ void free_list(list_t *head)
 	while (p)
 	{
 		free(head->str);
-		free(head);
 		p = p->next;
+		free(head);
 		head = p;
 	}
 	free(head);
@@ -150,7 +150,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (b = 0; b <= i; b++)
+	for (b = 0; b < i; b++)
 	{
 		dest[b] = str[b];
 	}
