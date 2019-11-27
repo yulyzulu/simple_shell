@@ -1,10 +1,12 @@
 #include "shell.h"
+
 /**
 * add_node - Add new node at the beginning of a list.
 * @head: The argument.
 * @str: The names to count.
 * Return: The New node.
 */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	int i = 0;
@@ -22,7 +24,7 @@ list_t *add_node(list_t **head, const char *str)
 		i++;
 	}
 
-	new_node->str = strdup(str);
+	new_node->str = _strdup(str);
 	new_node->len = i;
 	new_node->next = *head;
 	*head = new_node;
@@ -35,6 +37,7 @@ list_t *add_node(list_t **head, const char *str)
 * @head: The argument.
 * Return: Nothing.
 */
+
 void free_list(list_t *head)
 {
 	list_t *p = head;
@@ -48,12 +51,14 @@ void free_list(list_t *head)
 	}
 	free(head);
 }
+
 /**
 * _strcpy - copies the string pointed to by src
 * @dest: copy the string
 * @src: the string to copy
 * Return: value to pointer dest
 */
+
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
@@ -64,5 +69,91 @@ char *_strcpy(char *dest, char *src)
 		i++;
 	}
 
+	return (dest);
+}
+
+/**
+* string_nconcat - concatenates two strings.
+* @s1: The first string to print.
+* @s2: The second string to print.
+* @n: size of the size limit of s2
+* Return: The new string concatenate.
+*/
+
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	char *a;
+	unsigned int i, c = n;
+
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+
+	for (i = 0; s1[i]; i++)
+	{
+		c++;
+	}
+
+	a = malloc(sizeof(char) * c + 1);
+
+	if (a == NULL)
+	{
+		return (NULL);
+	}
+	c = 0;
+
+	for (i = 0; s1[i]; i++)
+	{
+		a[c++] = s1[i];
+	}
+
+	for (i = 0; s2[i] && i < n; i++)
+	{
+		a[c++] = s2[i];
+	}
+	a[c] = '\0';
+	return (a);
+}
+
+/**
+* _strdup - returns a pointer to a newly allocated space in memory.
+* @str: The string to copy.
+* Return: The string copy.
+*/
+
+char *_strdup(char *str)
+{
+	char *dest;
+	int i = 0;
+	int b;
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	while (str[i])
+	{
+		i++;
+	}
+	i++;
+
+	dest = malloc(sizeof(char) * i);
+
+	if (dest == 0)
+	{
+		return (NULL);
+	}
+
+	for (b = 0; b <= i; b++)
+	{
+		dest[b] = str[b];
+	}
 	return (dest);
 }
