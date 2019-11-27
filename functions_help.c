@@ -116,7 +116,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 char *_getenv(char *name, char **env)
 {
 	int i = 0;
-	char *token, *copy;
+	char *token, *copy, *ptr;
 
 	while (env[i])
 	{
@@ -126,7 +126,9 @@ char *_getenv(char *name, char **env)
 		if (_strcmp(token, name) == 0)
 		{
 			token = strtok(NULL, "=");
-			return (token);
+			ptr = _strdup(token);
+			free(copy);
+			return (ptr);
 		}
 		free(copy);
 		i++;

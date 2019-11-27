@@ -18,6 +18,7 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 	get_path = _getenv("PATH", env);
 	paths = parse_line(get_path, ":");
 	list_creator(paths, &head);
+	free(get_path);
 
 	while (1)
 	{
