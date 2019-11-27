@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
 * built_in_command - execute the built in functions.
 * @av: The argument to compare.
