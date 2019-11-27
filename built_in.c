@@ -22,13 +22,13 @@ void built_in_command(char **av, char **env, char *read, list_t *head)
 				write(STDOUT_FILENO, "\n", 1);
 				i++;
 			}
-			if ((_strcmp(av[0], "exit")) == 0)
-			{
-				free(read);
-				free(av);
-				free_list(head);
-				exit(EXIT_SUCCESS);
-			}
+		}
+		if ((_strcmp(av[0], "exit")) == 0)
+		{
+			free(read);
+			free(av);
+			free_list(head);
+			exit(EXIT_SUCCESS);
 		}
 	}
 }
