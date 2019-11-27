@@ -16,7 +16,7 @@ char *read_line(list_t *head)
 		free(buff);
 		free_list(head);
 		write(STDOUT_FILENO, "logout\n", 7);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	return (buff);
 }
