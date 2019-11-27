@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
 *_strlen - return length to a string
 *@s: The character to count
@@ -60,4 +59,79 @@ char *_strcat(char *dest, char *src)
 		dest[a] = src[b];
 	}
 	return (dest);
+}
+/**
+* _realloc - reallocates a memory block.
+* @ptr: Old size of memory.
+* @old_size: The size of reallocate.
+* @new_size: New size of memory.
+* Return: The new pointer and the new  allocation.
+*/
+
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	char *p;
+	unsigned int i;
+
+	if (new_size == old_size)
+	{
+		return (ptr);
+	}
+
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
+	p = malloc(new_size);
+
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+
+	if (ptr == NULL)
+	{
+		return (p);
+	}
+
+	if (new_size > old_size)
+	{
+		for (i = 0; i < old_size; i++)
+		{
+			p[i] = ((char *)ptr)[i];
+		}
+	}
+
+	free(ptr);
+	return (p);
+}
+/**
+* _getenv - Find the list of environment.
+* @name: The name to search.
+* @env: The environment.
+* Return: The list of enviroment.
+*/
+char *_getenv(char *name, char **env)
+{
+	int i = 0;
+	char *token, *copy;
+
+	while (env[i])
+	{
+		copy = _strdup(env[i]);
+		token = strtok(copy, "=");
+
+		if (_strcmp(token, name) == 0)
+		{
+			token = strtok(NULL, "=");
+			return (token);
+		}
+		free(copy);
+		i++;
+	}
+	if (name == NULL)
+		perror("NOT FOUND");
+	return (NULL);
 }
