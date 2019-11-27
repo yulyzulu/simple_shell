@@ -10,7 +10,9 @@ char *read_line(list_t *head)
 	size_t size = 0;
 	ssize_t get;
 
-	write(STDOUT_FILENO, "($) ", 4);
+	if (isatty(STDIN_FILENO) == 1)
+		write(STDOUT_FILENO, "($) ", 4);
+
 	get = getline(&buff, &size, stdin);
 
 	if (get == EOF)
