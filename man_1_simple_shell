@@ -1,0 +1,66 @@
+.TH man 1 "28 Nov 2019" "0.32" "our simple shell man page"
+.SH NAME
+.B simple_shell.
+- We try to build our own simple shell program.
+.SH SYNOPSIS
+.SH 
+.SH hsh [options] [file]
+.SH
+.SH DESCRIPTION
+Hsh is an sh-compatible command language interpreter that executes commands read from the standard input or from a file. 
+.SH
+.SH COMMAND EXECUTION
+After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
+
+If the command name contains no slashes, the shell attempts to locate it. If there exists a shell function by that name, that function is invoked as described above in FUNCTIONS. If the name does not match a function, the shell searches for it in the list of shell builtins. If a match is found, that builtin is invoked.
+
+If the name is neither a shell function nor a builtin, and contains no slashes, bash searches each element of the PATH for a directory containing an executable file by that name. Bash uses a hash table to remember the full pathnames of executable files (see hash under SHELL BUILTIN COMMANDS below). A full search of the directories in PATH is performed only if the command is not found in the hash table. If the search is unsuccessful, the shell searches for a defined shell function named command_not_found_handle. If that function exists, it is invoked with the original command and the original command's arguments as its arguments, and the function's exit status becomes the exit status of the shell. If that function is not defined, the shell prints an error message and returns an exit status of 127.
+
+If the search is successful, or if the command name contains one or more slashes, the shell executes the named program in a separate execution environment. Argument 0 is set to the name given, and the remaining arguments to the command are set to the arguments given, if any.
+.SH
+.SH ENVIRONMENT
+When a program is invoked it is given an array of strings called the environment. This is a list of name-value pairs, of the form name=value.
+
+The shell provides several ways to manipulate the environment. On invocation, the shell scans its own environment and creates a parameter for each name found, automatically marking it for export to child processes. Executed commands inherit the environment. 
+.SH
+.SH EXIT STATUS
+The exit status of an executed command is the value returned by the waitpid system call or equivalent function.
+Shell builtin commands return a status of 0 (true) if successful, and non-zero (false) if an error occurs while they execute.
+
+EXIT
+Cause the shell to exit with a status, the exit status is that of the last command executed. A trap on EXIT is executed before the shell terminates.
+.SH
+.SH PROMPTING
+When executing interactively, bash displays the primary prompt PS1 when it is ready to read a command, and the secondary prompt PS2 when it needs more input to complete a command.
+.SH
+.SH SHELL BUILTIN COMMANDS
+In this shell we implement the "exit" and "env" builtins that are processed by hsh.   
+.SH
+.SH EXAMPLES TEST
+we compare with shell function original our own simple_shell function with next examples:
+.SH
+.SH Examples
+.SH
+.SH ls
+.SH ls -la
+.SH ls -lat
+.SH ls -a
+.SH ls -t
+.SH pwd
+.SH echo
+.SH cat
+.SH 
+.SH 
+.SH 
+.SH 
+.SH 
+.SH
+.SH Results
+.SH
+.SH 
+.SH 
+.SH ISSUES
+We have a issue
+.SH AUTHORS
+Yulieth Zuluaga and Cristian Gomez Bernal
+	
