@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
 * built_in_command - execute the built in functions.
 * @av: The argument to compare.
@@ -28,7 +29,7 @@ void built_in_command(char **av, char **env, char *read, list_t *head)
 			free(read);
 			free(av);
 			free_list(head);
-			exit(EXIT_SUCCESS);
+			exit(0);
 		}
 	}
 }
