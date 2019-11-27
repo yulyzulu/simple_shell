@@ -1,9 +1,8 @@
 #include "shell.h"
-
 /**
 *list_creator - Function that creates a nodes.
-*@paths: Argument to free.
-*@head: where the nodes are going to be added.
+*@paths: double pointer string - Argument to free.
+*@head: double pointer string - where the nodes are going to be added.
 *Return: nothing.
 */
 
