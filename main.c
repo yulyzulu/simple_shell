@@ -32,7 +32,7 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 		{
 			if (av[0] && (execve(av[0], av, NULL) == -1))
 				perror("Error");
-			exit(EXIT_FAILURE);
+			exit(0);
 
 		}
 		else if (child == -1)
