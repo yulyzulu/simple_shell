@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 /**
 *read_line- function to get the text typed by the user
 *@head: string pointer
