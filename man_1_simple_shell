@@ -13,7 +13,7 @@ Hsh is an sh-compatible command language interpreter that executes commands read
 .SH Simple Shell must be called with the command ./hsh mode interactive
 .SH And to call the Simple Shell with non-mode interactive with the command echo "/bin/ls" | ./hsh
 .SH Then the prompt appears as: ($)
-
+.SH
 .SH COMMAND EXECUTION
 After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
 
@@ -45,21 +45,64 @@ In this shell we implement the "exit" and "env" builtins that are processed by h
 we compare with shell function original our own simple_shell function with next examples:
 .SH
 .SH Examples commands
-.B Enter any of the following commands to:
-.B ls: Displays a list of the names of all files in the current working directory.
-.B ls -l: print files in a long listing format. 
-.B ls -a: display all files including the hidden files.
-.B ls /tmp: isplays a list of the names of all files in the /tmp directory.
-.B pwd: print working directory
-.B echo: display line of text/string that are passed as an argument.
-.B cat: lists the contents of files to the terminal window.
+Enter any of the following commands to:
+.SH ls: Displays a list of the names of all files in the current working directory.
+.SH ls -l: print files in a long listing format. 
+.SH ls -a: display all files including the hidden files.
+.SH ls /tmp: isplays a list of the names of all files in the /tmp directory.
+.SH pwd: print working directory
+.SH echo: display line of text/string that are passed as an argument.
+.SH cat: lists the contents of files to the terminal window.
 .SH 
+.SH vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ ./hsh
+.SH ($) ls
+.SH AUTHORS    built_in.c          functions_help.c   hsh             main.c              parse_line.c  shell.h
+.SH README.md  concatenate_list.c  functions_help2.c  list_creator.c  man_1_simple_shell  read_line.c
+.SH ($) ls -l
+.SH total 72
+.SH -rw-rw-r-- 1 vagrant vagrant   176 Nov 27 21:24 AUTHORS
+.SH -rw-rw-r-- 1 vagrant vagrant    15 Nov 27 21:24 README.md
+.SH -rw-rw-r-- 1 vagrant vagrant   615 Nov 27 21:24 built_in.c
+.SH -rw-rw-r-- 1 vagrant vagrant   620 Nov 27 21:24 concatenate_list.c
+.SH -rw-rw-r-- 1 vagrant vagrant  1934 Nov 27 21:24 functions_help.c
+.SH -rw-rw-r-- 1 vagrant vagrant  1972 Nov 27 21:24 functions_help2.c
+.SH -rwxrwxr-x 1 vagrant vagrant 22211 Nov 27 21:24 hsh
+.SH -rw-rw-r-- 1 vagrant vagrant   351 Nov 27 21:24 list_creator.c
+.SH -rw-rw-r-- 1 vagrant vagrant   847 Nov 27 21:24 main.c
+.SH -rw-rw-r-- 1 vagrant vagrant  3394 Nov 27 21:24 man_1_simple_shell
+.SH -rw-rw-r-- 1 vagrant vagrant   688 Nov 27 21:24 parse_line.c
+.SH -rw-rw-r-- 1 vagrant vagrant   371 Nov 27 21:24 read_line.c
+.SH -rw-rw-r-- 1 vagrant vagrant  1178 Nov 27 21:24 shell.h
+.SH ($)
 .SH 
-.SH 
-.SH 
-.SH 
-.SH SEE ALSO
+.SH FILES
 .SH
+.SH main.c: File to call Shell functions.
+.SH read_line.c: Get the text typed by the user.
+.SH parse_line.c: Parse the string.
+.SH built_in.c: Execute built commands.
+.SH concatenate_list.c: Concatenate nodes.
+.SH functions_help.c: File containing the functions: _strlen: Return lenth to a string;
+.SH _strcmp: Compares two strings; _strcat: Concateate two strings; _realloc: reallocates a memory block
+.SH functions_help2.c: File containing the functions: add_node: Add new node at the beginning of a list;
+.SH free_list: Free a list;_strcpy: copies the string pointed; string_nconcat: Concatenates two strings; 
+.SH _strdup: Duplicate a string.
+.SH send_list.c: Create a list.
+.SH shell.h: Header.
+.SH
+.SH SEE ALSO
+.SH 
+.SH access (man 2 access)
+.SH execve (man 2 execve)
+.SH exit (man 3 exit)
+.SH fork (man 2 fork)
+.SH free (man 3 free)
+.SH getline (man 3 getline)
+.SH isatty (man 3 isatty)
+.SH malloc (man 3 malloc)
+.SH perror (man 3 perror)
+.SH strtok (man 3 strtok)
+.SH wait (man 2 wait)
 .SH
 .SH BUGS
 So far no bugs have been found, if you find any please report it
