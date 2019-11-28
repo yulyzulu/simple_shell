@@ -9,6 +9,11 @@
 .SH DESCRIPTION
 Hsh is an sh-compatible command language interpreter that executes commands read from the standard input or from a file. 
 .SH
+.SH INVOCATION
+.SH Simple Shell must be called with the command ./hsh mode interactive
+.SH And to call the Simple Shell with non-mode interactive with the command echo "/bin/ls" | ./hsh
+.SH Then the prompt appears as: ($)
+
 .SH COMMAND EXECUTION
 After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
 
@@ -39,28 +44,27 @@ In this shell we implement the "exit" and "env" builtins that are processed by h
 .SH EXAMPLES TEST
 we compare with shell function original our own simple_shell function with next examples:
 .SH
-.SH Examples
+.SH Examples commands
+.B Enter any of the following commands to:
+.B ls: Displays a list of the names of all files in the current working directory.
+.B ls -l: print files in a long listing format. 
+.B ls -a: display all files including the hidden files.
+.B ls /tmp: isplays a list of the names of all files in the /tmp directory.
+.B pwd: print working directory
+.B echo: display line of text/string that are passed as an argument.
+.B cat: lists the contents of files to the terminal window.
+.SH 
+.SH 
+.SH 
+.SH 
+.SH 
+.SH SEE ALSO
 .SH
-.SH ls
-.SH ls -la
-.SH ls -lat
-.SH ls -a
-.SH ls -t
-.SH pwd
-.SH echo
-.SH cat
-.SH 
-.SH 
-.SH 
-.SH 
-.SH 
 .SH
-.SH Results
-.SH
+.SH BUGS
+So far no bugs have been found, if you find any please report it
 .SH 
 .SH 
-.SH ISSUES
-We have a issue
 .SH AUTHORS
 Yulieth Zuluaga and Cristian Gomez Bernal
 	
