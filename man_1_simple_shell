@@ -1,7 +1,7 @@
-.TH man 1 "28 Nov 2019" "0.32" "our simple shell man page"
+.TH man 1 "28 Nov 2019" "0.32" "Simple Shell man page"
 .SH NAME
-.B simple_shell.
-- We try to build our own simple shell program.
+.B simple_shell
+- Simple Shell program
 .SH SYNOPSIS
 .SH 
 .SH hsh [options] [file]
